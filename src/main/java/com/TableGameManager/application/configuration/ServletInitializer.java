@@ -1,5 +1,6 @@
-package com.example.TableGameManager;
+package com.TableGameManager.application.configuration;
 
+import com.TableGameManager.TableGameManagerApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
