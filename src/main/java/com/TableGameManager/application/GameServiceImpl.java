@@ -18,34 +18,40 @@ public class GameServiceImpl implements GameService{
     @Override
     public Game getGame(Integer id) {
         GameVO gameVo = repository.get(id);
-        return new Game(
-            gameVo.getId(),
-            gameVo.getDescription(),
-            gameVo.getMinPlayers(),
-            gameVo.getMaxPlayers(),
-            gameVo.getValoration(),
-            gameVo.getDescription()
-        );
+        if(null != gameVo) {
+            return new Game(
+                gameVo.getId(),
+                gameVo.getName(),
+                gameVo.getMinPlayers(),
+                gameVo.getMaxPlayers(),
+                gameVo.getMinAge(),
+                gameVo.getDurationInMinutes(),
+                gameVo.getValoration(),
+                gameVo.getDescription()
+            );
+        }return null;
     }
 
     @Override
     public void deleteGame(Integer id) {
-
+        repository.delete(id);
     }
 
     @Override
     public List<Game> listGames() {
         List<GameVO> games = repository.listAll();
         return new ArrayList<Game>(){{
-            for (GameVO g: games) {
+            for (GameVO game: games) {
                 add(
                     new Game(
-                        g.getId(),
-                        g.getDescription(),
-                        g.getMinPlayers(),
-                        g.getMaxPlayers(),
-                        g.getValoration(),
-                        g.getDescription()
+                        game.getId(),
+                        game.getName(),
+                        game.getMinPlayers(),
+                        game.getMaxPlayers(),
+                        game.getMinAge(),
+                        game.getDurationInMinutes(),
+                        game.getValoration(),
+                        game.getDescription()
                     )
                 );
             }
@@ -54,7 +60,18 @@ public class GameServiceImpl implements GameService{
 
     @Override
     public void updateGame(Game game) {
-
+        repository.update(
+            new GameVO(
+                game.getId(),
+                game.getName(),
+                game.getMinPlayers(),
+                game.getMaxPlayers(),
+                game.getMinAge(),
+                game.getDurationInMinutes(),
+                game.getValoration(),
+                game.getDescription()
+            )
+        );
     }
 
     @Override
@@ -63,6 +80,8 @@ public class GameServiceImpl implements GameService{
             game.getName(),
             game.getMinPlayers(),
             game.getMaxPlayers(),
+            game.getMinAge(),
+            game.getDurationInMinutes(),
             game.getValoration(),
             game.getDescription()
         );

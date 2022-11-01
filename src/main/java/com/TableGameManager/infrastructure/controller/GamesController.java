@@ -25,4 +25,24 @@ public class GamesController {
         return new ResponseEntity<>(games, HttpStatus.OK);
     }
 
+    @PostMapping
+    public ResponseEntity<GameResponse> addGame(
+        @RequestBody GameRequest request
+    ){
+        gameService.addGame(
+            new Game(
+                null,
+                request.name,
+                request.minPlayers,
+                request.maxPlayers,
+                request.minAge,
+                request.durationInMinutes,
+                request.valoration,
+                request.description
+            )
+        );
+
+        return new ResponseEntity<>( HttpStatus.CREATED);
+    }
+
 }

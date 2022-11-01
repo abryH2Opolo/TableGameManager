@@ -18,6 +18,9 @@ public class GameResponse {
     public Integer minPlayers ;
     @JsonProperty("max_players")
     public Integer maxPlayers;
+    @JsonProperty("min_age")
+    public Integer minAge;
+    public Integer durationInMinutes;
     public Valoration valoration;
     public String description;
 
@@ -26,6 +29,7 @@ public class GameResponse {
         this.name = game.getName();
         this.minPlayers = game.getMinPlayers();
         this.maxPlayers = game.getMaxPlayers();
+        this.minAge = game.getMinAge();
         this.valoration = game.getValoration();
         this.description = game.getDescription();
     }

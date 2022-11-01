@@ -16,6 +16,10 @@ public class GameRequest {
     public Integer minPlayers ;
     @JsonProperty("max_players")
     public Integer maxPlayers;
+    @JsonProperty("min_age")
+    public Integer minAge;
+    public Integer durationInMinutes;
     public Valoration valoration;
     public String description;
+
 }

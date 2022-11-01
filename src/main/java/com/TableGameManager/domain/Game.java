@@ -1,6 +1,5 @@
 package com.TableGameManager.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -13,6 +12,8 @@ public class Game {
     private String name;
     private Integer minPlayers ;
     private Integer maxPlayers;
+    private Integer minAge;
+    private Integer durationInMinutes;;
     private Valoration valoration;
     private String description;
 }
