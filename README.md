@@ -1,4 +1,2 @@
 # TableGameManager
-Table Games manager 
-
-First commit
+Table Games manager
